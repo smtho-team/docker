@@ -41,5 +41,14 @@ services:
       - prisma
       - studio
 # END SECTION: Optional use of Prisma Studio.
+  nginx:
+    image: nginx
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - "./nginx:/etc/nginx"
+    depends_on:
+      - calendso
 volumes:
   database-data:
